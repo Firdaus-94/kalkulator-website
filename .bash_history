@@ -1,4 +1,3 @@
-pkg upgrade
 pkg install bash curl wget jq
 pkg install python python-pip
 pkg install php
@@ -473,4 +472,29 @@ cd website-kalkulator
 nano index.html
 python -m http.server 8000
 login
+exit
+git init
+git add .
+git commit -m "website kalkulator"
+git branch -M main
+git remote add origin https://github.com/Firdaus94/website-kalkulator.git
+git push -u origin main
+exit
+python -m http.server 8000
+nano index.html
+mkdir website-kalkulator
+cd website-kalkulator
+nano index.html
+rm index.html
+nano index.html
+python -m http.server 8000
+nano index.html
+rm index.html
+nano index.html
+python -m http.server 8000
+nano index.html
+mv index.html index.html
+mv index.html
+mv kalkulator.html index.html
+nano index.html
 exit

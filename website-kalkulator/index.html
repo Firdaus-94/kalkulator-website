@@ -1,55 +1,179 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Kalkulator</title>
+  <title>Kalkulator Pro</title>
+
+  <!-- Responsive -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    body {
+      margin: 0;
+      background: linear-gradient(135deg, #1e1e2f, #2c2c3e);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      font-family: Arial;
+    }
+
+    .kalkulator {
+      background: #2c2c3e;
+      padding: 15px;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+      width: 90%;
+      max-width: 320px;
+    }
+
+    #layar {
+      width: 100%;
+      height: 60px;
+      font-size: 26px;
+      margin-bottom: 15px;
+      border: none;
+      border-radius: 10px;
+      padding: 10px;
+      text-align: right;
+      background: #1e1e2f;
+      color: white;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+    }
+
+    button {
+      height: 60px;
+      font-size: 18px;
+      border: none;
+      border-radius: 15px;
+      background: #3a3a4f;
+      color: white;
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+
+    button:active {
+      transform: scale(0.9);
+    }
+
+    .operator { background: #ff9500; }
+    .equal {
+      background: #00c853;
+      grid-column: span 2;
+    }
+    .clear { background: #ff3b30; }
+    .backspace { background: #607d8b; }
+
+    /* 📱 Responsive khusus HP kecil */
+    @media (max-width: 400px) {
+      #layar { font-size: 22px; }
+      button {
+        height: 55px;
+        font-size: 16px;
+      }
+    }
+  </style>
 </head>
+
 <body>
 
-<h2>Kalkulator Sederhana</h2>
+<div class="kalkulator">
+  <input id="layar" readonly>
 
-<input id="layar" readonly>
-<br><br>
+  <div class="grid">
+    <button onclick="hapus()" class="clear">C</button>
+    <button onclick="backspace()" class="backspace">⌫</button>
+    <button onclick="tambah('(')">(</button>
+    <button onclick="tambah('/')" class="operator">÷</button>
 
-<button onclick="tambah('1')">1</button>
-<button onclick="tambah('2')">2</button>
-<button onclick="tambah('3')">3</button>
-<button onclick="tambah('+')">+</button>
-<br>
+    <button onclick="tambah('7')">7</button>
+    <button onclick="tambah('8')">8</button>
+    <button onclick="tambah('9')">9</button>
+    <button onclick="tambah('*')" class="operator">×</button>
 
-<button onclick="tambah('4')">4</button>
-<button onclick="tambah('5')">5</button>
-<button onclick="tambah('6')">6</button>
-<button onclick="tambah('-')">-</button>
-<br>
+    <button onclick="tambah('4')">4</button>
+    <button onclick="tambah('5')">5</button>
+    <button onclick="tambah('6')">6</button>
+    <button onclick="tambah('-')" class="operator">−</button>
 
-<button onclick="tambah('7')">7</button>
-<button onclick="tambah('8')">8</button>
-<button onclick="tambah('9')">9</button>
-<button onclick="tambah('*')">*</button>
-<br>
+    <button onclick="tambah('1')">1</button>
+    <button onclick="tambah('2')">2</button>
+    <button onclick="tambah('3')">3</button>
+    <button onclick="tambah('+')" class="operator">+</button>
 
-<button onclick="hapus()">C</button>
-<button onclick="tambah('0')">0</button>
-<button onclick="hitung()">=</button>
-<button onclick="tambah('/')">/</button>
+    <button onclick="tambah('0')">0</button>
+    <button onclick="tambah('.')">.</button>
+    <button onclick="hitung()" class="equal">=</button>
+  </div>
+</div>
 
 <script>
+const layar = document.getElementById("layar");
+
+// input tombol klik
 function tambah(val){
-  document.getElementById("layar").value += val;
+  layar.value += val;
 }
 
+// hapus semua
 function hapus(){
-  document.getElementById("layar").value = "";
+  layar.value = "";
 }
 
+// hapus satu karakter
+function backspace(){
+  layar.value = layar.value.slice(0, -1);
+}
+
+// hitung
 function hitung(){
   try {
-    document.getElementById("layar").value =
-      eval(document.getElementById("layar").value);
+    layar.value = eval(layar.value);
   } catch {
-    alert("Error");
+    layar.value = "Error";
   }
 }
+
+//
+// ⌨️ INPUT KEYBOARD
+//
+document.addEventListener("keydown", function(e){
+  const key = e.key;
+
+  // angka
+  if (!isNaN(key)) {
+    tambah(key);
+  }
+
+  // operator
+  if (["+", "-", "*", "/", "."].includes(key)) {
+    tambah(key);
+  }
+
+  // enter = hitung
+  if (key === "Enter") {
+    hitung();
+  }
+
+  // backspace
+  if (key === "Backspace") {
+    backspace();
+  }
+
+  // escape = clear
+  if (key === "Escape") {
+    hapus();
+  }
+
+  // kurung
+  if (key === "(" || key === ")") {
+    tambah(key);
+  }
+});
 </script>
 
 </body>

@@ -1,31 +1,3 @@
-pkg install bash curl wget jq
-pkg install python python-pip
-pkg install php
-pkg install git
-git clone https://github.com/Sxp-ID/Premium-Call
-cd Premium-Call
-git pull
-ls
-make install
-ls
-./main
-main
-./main
-make run
-./main
-ls
-./main
-clear
-$HIME
-$HOME
-EXIT
-END
-exit
-$HOME
-pkg install make clang
-git clone https://github.com/Sxp-​  ID/litespam
-git clone https://github.com/Sxp-ID/litespam
-cd litespam
 git pull
 make install
 ./main
@@ -497,4 +469,32 @@ mv index.html index.html
 mv index.html
 mv kalkulator.html index.html
 nano index.html
+exit
+git init
+git add .
+git commit -m "website kalkulator"
+git remote add origin https://github.com/Firdaus94/kalkulator-web.git
+git branch -M main
+git push -u origin main
+git push
+git remote add origin https://github.com/Firdaus94/kalkulator-web.git
+git branch -M main
+git push -u origin main
+git branch -M main
+git remote add origin https://github.com/Firdaus94/kalkulator-web.git
+git branch -M main
+git push -u origin main
+git remote add origin https://github.com/USERNAME/kalkulator-web.git
+git branch -M main
+git push -u origin main
+git remote add origin https://github.com/USERNAME/kalkulator-web.git
+git branch -M main
+git push -u origin main
+git remote add origin https://github.com/Firdaus-94/kalkulator-web.git
+git branch -M main
+git push -u origin main
+https://github.com/Firdaus-94/kalkulator-web.git
+git init
+git add .
+git commit -m "website kalkulator"
 exit

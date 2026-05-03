@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Kalkulator</title>
+</head>
+<body>
+
+<h2>Kalkulator Sederhana</h2>
+
+<input id="layar" readonly>
+<br><br>
+
+<button onclick="tambah('1')">1</button>
+<button onclick="tambah('2')">2</button>
+<button onclick="tambah('3')">3</button>
+<button onclick="tambah('+')">+</button>
+<br>
+
+<button onclick="tambah('4')">4</button>
+<button onclick="tambah('5')">5</button>
+<button onclick="tambah('6')">6</button>
+<button onclick="tambah('-')">-</button>
+<br>
+
+<button onclick="tambah('7')">7</button>
+<button onclick="tambah('8')">8</button>
+<button onclick="tambah('9')">9</button>
+<button onclick="tambah('*')">*</button>
+<br>
+
+<button onclick="hapus()">C</button>
+<button onclick="tambah('0')">0</button>
+<button onclick="hitung()">=</button>
+<button onclick="tambah('/')">/</button>
+
+<script>
+function tambah(val){
+  document.getElementById("layar").value += val;
+}
+
+function hapus(){
+  document.getElementById("layar").value = "";
+}
+
+function hitung(){
+  try {
+    document.getElementById("layar").value =
+      eval(document.getElementById("layar").value);
+  } catch {
+    alert("Error");
+  }
+}
+</script>
+
+</body>
+</html>

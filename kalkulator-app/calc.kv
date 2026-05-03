@@ -1,0 +1,11 @@
+<CalcLayout>:
+    orientation: "vertical"
+
+    TextInput:
+        id: display
+        font_size: 32
+        multiline: False
+
+    Button:
+        text: "1+1"
+        on_press: display.text = root.calculate("1+1")
